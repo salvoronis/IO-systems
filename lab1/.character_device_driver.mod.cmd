@@ -1,1 +1,0 @@
-cmd_/home/salvoroni/ioSystems/lab1/character_device_driver.mod := { echo  /home/salvoroni/ioSystems/lab1/character_device_driver.o;  echo; } > /home/salvoroni/ioSystems/lab1/character_device_driver.mod
