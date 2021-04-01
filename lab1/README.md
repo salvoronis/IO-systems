@@ -1,10 +1,8 @@
-# Лабораторная работа 1
+# Лабораторная работа 1 
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-c.svg)](https://forthebadge.com)
-
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 
-[![forthebadge](https://forthebadge.com/images/badges/works-on-my-machine.svg)](https://forthebadge.com)
 
 **👉 Название**: Разработка драйверов символьных устройств
 
@@ -48,7 +46,7 @@ sudo rmmod character_device_driver
 Для того, чтобы записать в файл символьного устройства, вы можете использовать команду `echo`:
 
 ```shell
-echo "1000-7" > /dev/var2
+echo "993-7" > /dev/var2
 ```
 
 Поддерживаются также операции `+`, `-`, `*`, `/`
