@@ -25,12 +25,12 @@ struct priv {
 
 int processed_packets = 0;
 int dropped_packets = 0;
-char *buffer;
+char buffer[BUFFSIZE];
 size_t buffer_ptr = 0;
 
-void init_buffer(void) 
+/*void init_buffer(void) 
 {
-    buffer = (char*) kmalloc(BUFFSIZE * sizeof(char), GFP_KERNEL);
+    //buffer = (char*) kmalloc(BUFFSIZE * sizeof(char), GFP_KERNEL);
     if (buffer)
     {
         buffer_ptr = 0;
@@ -38,7 +38,7 @@ void init_buffer(void)
         return;
     }
     printk(KERN_ERR "Driver: Failed to allocate result buffer %d\n", BUFFSIZE);
-}
+}*/
 
 static ssize_t proc_read(struct file *file, char __user * ubuf, size_t count, loff_t* ppos)
 {
@@ -79,8 +79,8 @@ void save(unsigned int saddr, unsigned int daddr) {
         printk(KERN_INFO "Driver: Result buffer is full, dumping it to kernel log to avoid overflow\n");
         printk(KERN_INFO "%s\n", buffer);
 
-        kfree(buffer);
-        init_buffer();
+        //kfree(buffer);
+        //init_buffer();
     }
 
     buffer_ptr += (sprintf(buffer + buffer_ptr,"%s", tmp1));
@@ -162,7 +162,7 @@ static void setup(struct net_device *dev) {
     ether_setup(dev);
     memset(netdev_priv(dev), 0, sizeof(struct priv));
     dev->netdev_ops = &crypto_net_device_ops;
-    init_buffer();
+    //init_buffer();
 
     //fill in the MAC address with a phoney
     for (i = 0; i < ETH_ALEN; i++)
